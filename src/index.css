@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-black text-white m-0 p-0 overflow-x-hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glow-purple {
+    text-shadow: 0 0 10px rgba(191, 64, 191, 0.8), 
+                 0 0 20px rgba(191, 64, 191, 0.6), 
+                 0 0 30px rgba(191, 64, 191, 0.4);
+  }
+
+  .glow-blue {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8), 
+                 0 0 20px rgba(0, 212, 255, 0.6), 
+                 0 0 30px rgba(0, 212, 255, 0.4);
+  }
+
+  .glow-pink {
+    text-shadow: 0 0 10px rgba(255, 16, 240, 0.8), 
+                 0 0 20px rgba(255, 16, 240, 0.6), 
+                 0 0 30px rgba(255, 16, 240, 0.4);
+  }
+
+  .glow-green {
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.8), 
+                 0 0 20px rgba(57, 255, 20, 0.6), 
+                 0 0 30px rgba(57, 255, 20, 0.4);
+  }
+
+  .box-glow-purple {
+    box-shadow: 0 0 15px rgba(191, 64, 191, 0.5), 
+                0 0 30px rgba(191, 64, 191, 0.3), 
+                0 0 45px rgba(191, 64, 191, 0.1);
+  }
+
+  .box-glow-blue {
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5), 
+                0 0 30px rgba(0, 212, 255, 0.3), 
+                0 0 45px rgba(0, 212, 255, 0.1);
+  }
+
+  .gradient-purple-blue {
+    background: linear-gradient(135deg, #bf40bf 0%, #00d4ff 100%);
+  }
+
+  .gradient-pink-purple {
+    background: linear-gradient(135deg, #ff10f0 0%, #bf40bf 100%);
+  }
+}
