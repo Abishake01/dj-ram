@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
               <h3 className="text-2xl font-bold text-white mb-6">Follow the Vibe</h3>
               <div className="grid grid-cols-2 gap-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/dj_remo_official"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-gradient-to-br from-pink-500/20 to-purple-500/20 p-4 rounded-xl border border-pink-500/30 hover:border-pink-500 transition-all duration-300 hover:scale-105"
