@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
           Electrifying Beats. Unforgettable Nights. Pure Energy.
         </p>
         <a
-          href="https://wa.me/1234567890"
+          href="https://wa.me/+917402241381"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 bg-gradient-purple-blue text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-110 transition-transform duration-300 box-glow-purple animate-slide-up"

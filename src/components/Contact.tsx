@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
                 <div>
                   <h3 className="text-sm text-gray-400 mb-1">Phone</h3>
                   <a href="tel:+911234567890" className="text-white font-semibold hover:text-neon-purple transition-colors">
-                    +91 123 456 7890
+                    +91 74022 41381
                   </a>
                 </div>
               </div>
@@ -118,7 +118,7 @@ const Contact: React.FC = () => {
             </div>
 
             <a
-              href="https://wa.me/1234567890"
+              href="https://wa.me/+917402241381"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 flex items-center justify-center gap-3 bg-green-500 text-white px-8 py-5 rounded-2xl text-lg font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 box-glow-green"
