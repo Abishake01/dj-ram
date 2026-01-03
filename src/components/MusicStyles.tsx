@@ -41,12 +41,24 @@ const MusicStyles: React.FC = () => {
   ];
 
   return (
-    <section id="music" className="py-20 px-4 md:px-8 bg-gradient-to-b from-black via-purple-900/10 to-black">
-      <div className="max-w-6xl mx-auto">
+    <section id="music" className="relative py-20 px-4 md:px-8 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black z-10"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920)',
+          }}
+        ></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-20 max-w-6xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-bold text-center mb-6 glow-blue">
           Music Styles
         </h2>
-        <p className="text-center text-gray-400 text-lg mb-16 max-w-3xl mx-auto">
+        <p className="text-center text-gray-300 text-lg mb-16 max-w-3xl mx-auto">
           Versatile genre mastery with custom playlists tailored to your event's unique vibe
         </p>
 
@@ -54,7 +66,7 @@ const MusicStyles: React.FC = () => {
           {genres.map((genre, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-gray-900/80 to-black p-8 rounded-2xl border border-gray-800 hover:border-neon-blue transition-all duration-300 hover:scale-105"
+              className="group bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-neon-blue transition-all duration-300 hover:scale-105 hover:box-glow-blue"
             >
               <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                 {genre.icon}
@@ -62,12 +74,12 @@ const MusicStyles: React.FC = () => {
               <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-neon-blue transition-colors">
                 {genre.name}
               </h3>
-              <p className="text-gray-400">{genre.description}</p>
+              <p className="text-gray-300">{genre.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-purple-500/10 via-blue-500/10 to-pink-500/10 border border-neon-purple/30 rounded-3xl p-12 text-center">
+        <div className="bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-pink-500/20 border border-neon-purple/50 rounded-3xl p-12 text-center backdrop-blur-sm">
           <h3 className="text-3xl font-bold mb-6 text-neon-purple">
             Live Mixing & Custom Curation
           </h3>
@@ -75,21 +87,21 @@ const MusicStyles: React.FC = () => {
             <div>
               <div className="text-4xl mb-3">🎧</div>
               <h4 className="text-xl font-semibold text-white mb-2">Read the Crowd</h4>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 Adapt music selection in real-time based on audience energy and response
               </p>
             </div>
             <div>
               <div className="text-4xl mb-3">🔀</div>
               <h4 className="text-xl font-semibold text-white mb-2">Seamless Transitions</h4>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 Professional mixing techniques ensuring smooth flow between tracks
               </p>
             </div>
             <div>
               <div className="text-4xl mb-3">📋</div>
               <h4 className="text-xl font-semibold text-white mb-2">Custom Playlists</h4>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm">
                 Pre-event consultation to include your favorite tracks and special requests
               </p>
             </div>
