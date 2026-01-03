@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-slide-up">
-          <span className="glow-purple animate-glow">DJ RAM</span>
+          <span className="glow-purple animate-glow">DJ REMO</span>
         </h1>
         <p className="text-xl md:text-3xl mb-8 glow-blue font-light tracking-wide max-w-3xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
           Electrifying Beats. Unforgettable Nights. Pure Energy.
