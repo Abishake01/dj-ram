@@ -101,7 +101,7 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=100080693065687&mibextid=rS40aB7S9Ucbxw6v"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-gradient-to-br from-blue-500/20 to-blue-600/20 p-4 rounded-xl border border-blue-500/30 hover:border-blue-500 transition-all duration-300 hover:scale-105"
@@ -113,7 +113,7 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 p-4 rounded-xl border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300 hover:scale-105"
