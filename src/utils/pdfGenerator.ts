@@ -57,14 +57,14 @@ export const generateEstimatePDF = (data: BillingData): void => {
   // Estimate Details (Right aligned)
   yPos = 20;
   doc.setFontSize(16);
-  doc.setTextColor(...darkColor);
-  doc.setFont(undefined, 'bold');
+  doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
+  doc.setFont('helvetica', 'bold');
   doc.text('ESTIMATE', 160, yPos);
   
   yPos += 8;
   doc.setFontSize(10);
-  doc.setFont(undefined, 'normal');
-  doc.setTextColor(...grayColor);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(grayColor[0], grayColor[1], grayColor[2]);
   doc.text(`Estimate No.: ${data.estimateNo}`, 160, yPos);
   yPos += 5;
   doc.text(`Date: ${data.date}`, 160, yPos);
@@ -72,13 +72,13 @@ export const generateEstimatePDF = (data: BillingData): void => {
   // Customer Details Section
   yPos = 60;
   doc.setFontSize(12);
-  doc.setTextColor(...darkColor);
-  doc.setFont(undefined, 'bold');
+  doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
+  doc.setFont('helvetica', 'bold');
   doc.text('Bill To:', 20, yPos);
   
   yPos += 8;
   doc.setFontSize(10);
-  doc.setFont(undefined, 'normal');
+  doc.setFont('helvetica', 'normal');
   doc.text(data.customerName, 20, yPos);
   yPos += 5;
   doc.text(`Phone: ${data.customerPhone}`, 20, yPos);
@@ -104,13 +104,13 @@ export const generateEstimatePDF = (data: BillingData): void => {
     body: tableData,
     theme: 'striped',
     headStyles: {
-      fillColor: primaryColor,
-      textColor: [255, 255, 255],
+      fillColor: primaryColor as [number, number, number],
+      textColor: [255, 255, 255] as [number, number, number],
       fontStyle: 'bold',
       fontSize: 10
     },
     bodyStyles: {
-      textColor: darkColor,
+      textColor: darkColor as [number, number, number],
       fontSize: 9
     },
     alternateRowStyles: {
@@ -135,7 +135,7 @@ export const generateEstimatePDF = (data: BillingData): void => {
   const finalY = (doc as any).lastAutoTable.finalY + 15;
   
   doc.setFontSize(10);
-  doc.setTextColor(...darkColor);
+  doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
   
   // Right align summary
   const summaryX = 150;
@@ -153,17 +153,17 @@ export const generateEstimatePDF = (data: BillingData): void => {
   doc.text(`₹${gstAmount.toFixed(2)}`, 190, summaryY, { align: 'right' });
   
   summaryY += 8;
-  doc.setFont(undefined, 'bold');
+  doc.setFont('helvetica', 'bold');
   doc.setFontSize(12);
-  doc.setTextColor(...primaryColor);
+  doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.text('Final Amount:', summaryX, summaryY);
   doc.text(`₹${finalAmount.toFixed(2)}`, 190, summaryY, { align: 'right' });
 
   // Footer Section
   summaryY += 20;
   doc.setFontSize(8);
-  doc.setFont(undefined, 'normal');
-  doc.setTextColor(...grayColor);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(grayColor[0], grayColor[1], grayColor[2]);
   doc.text('Terms and Conditions:', 20, summaryY);
   summaryY += 5;
   doc.text('• This is an estimate and subject to change based on final requirements.', 20, summaryY);
@@ -175,13 +175,13 @@ export const generateEstimatePDF = (data: BillingData): void => {
   // Signature Section
   summaryY += 15;
   doc.setFontSize(9);
-  doc.setTextColor(...darkColor);
+  doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
   doc.text('Client Signature:', 20, summaryY);
   doc.text('Authorized Signature:', 120, summaryY);
   
   summaryY += 15;
   doc.setLineWidth(0.5);
-  doc.setDrawColor(...grayColor);
+  doc.setDrawColor(grayColor[0], grayColor[1], grayColor[2]);
   doc.line(20, summaryY, 80, summaryY);
   doc.line(120, summaryY, 180, summaryY);
 
