@@ -93,9 +93,9 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(grayColor[0], grayColor[1], grayColor[2]);
-  doc.text(`Estimate No.: ${data.estimateNo}`, 170, yPos, { align: 'right' });
+  doc.text(`Estimate No.: ${data.estimateNo}`, 180, yPos, { align: 'right' });
   yPos += 5;
-  doc.text(`Date: ${data.date}`, 170, yPos, { align: 'right' });
+  doc.text(`Date: ${data.date}`, 180, yPos, { align: 'right' });
 
   // Customer Details Section
   yPos = 70;
@@ -119,11 +119,19 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
   // Items Table - Calculate proper start position
   const tableStartY = yPos + (addressLines.length * 5) + 15;
   
+  // Format numbers without spaces and without currency symbol to avoid encoding issues
+  const formatCurrency = (amount: number): string => {
+    // Convert to string, remove spaces, and return plain number
+    const numStr = amount.toFixed(2);
+    // Remove any spaces and return clean number string
+    return numStr.replace(/\s/g, '');
+  };
+
   const tableData = data.items.map((item, index) => [
     (index + 1).toString(),
     item.itemName,
     item.quantity.toString(),
-    `₹${item.amount.toFixed(2)}`
+    formatCurrency(item.amount) // Plain number without symbol to avoid encoding issues
   ]);
 
   autoTable(doc, {
@@ -141,18 +149,20 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
     bodyStyles: {
       textColor: darkColor as [number, number, number],
       fontSize: 10,
-      cellPadding: 5
+      cellPadding: 5,
+      font: 'helvetica' // Ensure consistent font
     },
     alternateRowStyles: {
       fillColor: [250, 250, 250]
     },
     columnStyles: {
-      0: { cellWidth: 25, halign: 'center' },
-      1: { cellWidth: 100, halign: 'left' },
-      2: { cellWidth: 35, halign: 'center' },
-      3: { cellWidth: 40, halign: 'right' }
+      0: { cellWidth: 20, halign: 'center' },
+      1: { cellWidth: 90, halign: 'left' },
+      2: { cellWidth: 30, halign: 'center' },
+      3: { cellWidth: 50, halign: 'right' }
     },
     margin: { left: 20, right: 20 },
+    tableWidth: 165, // Increased width for better spacing
     styles: {
       lineWidth: 0.1,
       lineColor: [200, 200, 200]
@@ -176,23 +186,30 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
   const summaryX = 140;
   let summaryY = finalY;
   
+  // Format currency without spaces and without symbol to avoid encoding issues
+  const formatAmount = (amount: number): string => {
+    const numStr = amount.toFixed(2);
+    // Remove any spaces and return clean number
+    return numStr.replace(/\s/g, '');
+  };
+
   doc.text('Subtotal:', summaryX, summaryY);
-  doc.text(`₹${subtotal.toFixed(2)}`, 190, summaryY, { align: 'right' });
+  doc.text(formatAmount(subtotal), 190, summaryY, { align: 'right' });
   
   summaryY += 7;
   doc.text('Discount:', summaryX, summaryY);
-  doc.text(`₹${discountAmount.toFixed(2)}`, 190, summaryY, { align: 'right' });
+  doc.text(formatAmount(discountAmount), 190, summaryY, { align: 'right' });
   
   summaryY += 7;
   doc.text('GST:', summaryX, summaryY);
-  doc.text(`₹${gstAmount.toFixed(2)}`, 190, summaryY, { align: 'right' });
+  doc.text(formatAmount(gstAmount), 190, summaryY, { align: 'right' });
   
   summaryY += 10;
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(12);
   doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.text('Final Amount:', summaryX, summaryY);
-  doc.text(`₹${finalAmount.toFixed(2)}`, 190, summaryY, { align: 'right' });
+  doc.text(formatAmount(finalAmount), 190, summaryY, { align: 'right' });
 
   // Footer Section - Terms and Conditions
   summaryY += 25;

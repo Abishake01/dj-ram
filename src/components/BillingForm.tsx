@@ -241,7 +241,7 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
                             updateItem(index, 'quantity', numValue);
                           }
                         }}
-                        onBlur={(e) => {
+                        onBlur={() => {
                           // Ensure minimum value of 1 when field loses focus
                           if (item.quantity < 1) {
                             updateItem(index, 'quantity', 1);
