@@ -27,23 +27,23 @@ export const generateEstimatePDF = (data: BillingData): void => {
   const companyPhone = '+91 74022 41381 / +91 85081 21111';
   const companyInstagram = '@dj_remo_official';
 
-  // Colors
-  const primaryColor = [138, 43, 226]; // Purple
-  const darkColor = [0, 0, 0];
-  const grayColor = [128, 128, 128];
+  // Colors (as tuples for TypeScript)
+  const primaryColor: [number, number, number] = [138, 43, 226]; // Purple
+  const darkColor: [number, number, number] = [0, 0, 0];
+  const grayColor: [number, number, number] = [128, 128, 128];
 
   // Header Section with Logo
   let yPos = 20;
   
   // Company name as header
   doc.setFontSize(24);
-  doc.setTextColor(...primaryColor);
-  doc.setFont(undefined, 'bold');
+  doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+  doc.setFont('helvetica', 'bold');
   doc.text(companyName, 20, yPos);
 
   yPos += 8;
   doc.setFontSize(10);
-  doc.setTextColor(...grayColor);
+  doc.setTextColor(grayColor[0], grayColor[1], grayColor[2]);
   doc.text(companyAddress, 20, yPos);
   yPos += 5;
   doc.text(companyCity, 20, yPos);
