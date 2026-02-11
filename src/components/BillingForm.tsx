@@ -230,11 +230,25 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
                     </td>
                     <td className="border border-gray-700 px-4 py-2">
                       <input
-                        type="number"
-                        min="1"
-                        value={item.quantity}
-                        onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value) || 1)}
-                        className="w-full bg-gray-800 border border-gray-700 rounded px-2 py-1 text-white focus:border-neon-purple focus:outline-none"
+                        type="text"
+                        inputMode="numeric"
+                        value={item.quantity === 0 ? '' : item.quantity}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          // Only allow numbers, remove leading zeros
+                          if (value === '' || /^\d+$/.test(value)) {
+                            const numValue = value === '' ? 0 : parseInt(value, 10);
+                            updateItem(index, 'quantity', numValue);
+                          }
+                        }}
+                        onBlur={(e) => {
+                          // Ensure minimum value of 1 when field loses focus
+                          if (item.quantity < 1) {
+                            updateItem(index, 'quantity', 1);
+                          }
+                        }}
+                        className="w-full bg-gray-800 border border-gray-700 rounded px-2 py-1 text-white focus:border-neon-purple focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        placeholder="1"
                       />
                       {errors[`quantity_${index}`] && (
                         <p className="text-red-400 text-xs mt-1">{errors[`quantity_${index}`]}</p>
@@ -242,12 +256,23 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
                     </td>
                     <td className="border border-gray-700 px-4 py-2">
                       <input
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        value={item.amount}
-                        onChange={(e) => updateItem(index, 'amount', parseFloat(e.target.value) || 0)}
-                        className="w-full bg-gray-800 border border-gray-700 rounded px-2 py-1 text-white focus:border-neon-purple focus:outline-none"
+                        type="text"
+                        inputMode="decimal"
+                        value={item.amount === 0 ? '' : item.amount}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          // Allow numbers and decimal point, remove leading zeros
+                          if (value === '' || /^\d*\.?\d*$/.test(value)) {
+                            // Remove leading zeros except for decimal numbers like 0.5
+                            let cleanValue = value;
+                            if (cleanValue.length > 1 && cleanValue[0] === '0' && cleanValue[1] !== '.') {
+                              cleanValue = cleanValue.replace(/^0+/, '') || '0';
+                            }
+                            const numValue = cleanValue === '' ? 0 : parseFloat(cleanValue) || 0;
+                            updateItem(index, 'amount', numValue);
+                          }
+                        }}
+                        className="w-full bg-gray-800 border border-gray-700 rounded px-2 py-1 text-white focus:border-neon-purple focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         placeholder="0.00"
                       />
                       {errors[`amount_${index}`] && (
@@ -286,12 +311,22 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
               <label className="text-gray-300">Discount:</label>
               <div className="flex items-center gap-2">
                 <input
-                  type="number"
-                  min="0"
-                  step="0.01"
-                  value={discount}
-                  onChange={(e) => setDiscount(parseFloat(e.target.value) || 0)}
-                  className="w-32 bg-gray-800 border border-gray-700 rounded px-3 py-1 text-white focus:border-neon-purple focus:outline-none"
+                  type="text"
+                  inputMode="decimal"
+                  value={discount === 0 ? '' : discount}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    // Allow numbers and decimal point, remove leading zeros
+                    if (value === '' || /^\d*\.?\d*$/.test(value)) {
+                      let cleanValue = value;
+                      if (cleanValue.length > 1 && cleanValue[0] === '0' && cleanValue[1] !== '.') {
+                        cleanValue = cleanValue.replace(/^0+/, '') || '0';
+                      }
+                      const numValue = cleanValue === '' ? 0 : parseFloat(cleanValue) || 0;
+                      setDiscount(numValue);
+                    }
+                  }}
+                  className="w-32 bg-gray-800 border border-gray-700 rounded px-3 py-1 text-white focus:border-neon-purple focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   placeholder="0.00"
                 />
                 <span className="text-gray-300">₹</span>
@@ -301,12 +336,22 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
               <label className="text-gray-300">GST:</label>
               <div className="flex items-center gap-2">
                 <input
-                  type="number"
-                  min="0"
-                  step="0.01"
-                  value={gst}
-                  onChange={(e) => setGst(parseFloat(e.target.value) || 0)}
-                  className="w-32 bg-gray-800 border border-gray-700 rounded px-3 py-1 text-white focus:border-neon-purple focus:outline-none"
+                  type="text"
+                  inputMode="decimal"
+                  value={gst === 0 ? '' : gst}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    // Allow numbers and decimal point, remove leading zeros
+                    if (value === '' || /^\d*\.?\d*$/.test(value)) {
+                      let cleanValue = value;
+                      if (cleanValue.length > 1 && cleanValue[0] === '0' && cleanValue[1] !== '.') {
+                        cleanValue = cleanValue.replace(/^0+/, '') || '0';
+                      }
+                      const numValue = cleanValue === '' ? 0 : parseFloat(cleanValue) || 0;
+                      setGst(numValue);
+                    }
+                  }}
+                  className="w-32 bg-gray-800 border border-gray-700 rounded px-3 py-1 text-white focus:border-neon-purple focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   placeholder="0.00"
                 />
                 <span className="text-gray-300">₹</span>
