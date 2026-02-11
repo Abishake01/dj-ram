@@ -96,7 +96,7 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleGeneratePDF = () => {
+  const handleGeneratePDF = async () => {
     if (!validateForm()) {
       return;
     }
@@ -116,7 +116,7 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
       gst
     };
 
-    generateEstimatePDF(billingData);
+    await generateEstimatePDF(billingData);
   };
 
   return (
