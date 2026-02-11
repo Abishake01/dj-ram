@@ -25,15 +25,14 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
   const companyAddress = '2/35, Main Road, G.Ariyur';
   const companyCity = 'Thirukovilur, Kallakurichi';
   const companyPin = 'Pin - 605 751';
-  const companyPhone = '+91 74022 41381 / +91 85081 21111';
-  const companyInstagram = '@dj_remo_official';
+  const companyPhone = '+91 74022 41381';
 
   // Colors (as tuples for TypeScript)
   const primaryColor: [number, number, number] = [138, 43, 226]; // Purple
   const darkColor: [number, number, number] = [0, 0, 0];
   const grayColor: [number, number, number] = [128, 128, 128];
 
-  // Add Logo (Right side top) - Using base64 approach
+  // Add Logo (Left side top) - Using base64 approach
   const addLogo = async () => {
     try {
       // Fetch the image and convert to base64
@@ -47,7 +46,7 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
           if (base64data) {
             const logoWidth = 30;
             const logoHeight = 30;
-            const logoX = 170; // Right side
+            const logoX = 20; // Left side
             const logoY = 15; // Top
             
             // Add logo image
@@ -66,36 +65,34 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
   
   await addLogo();
 
-  // Header Section (Left side)
+  // Header Section (Right side) - Company name and address
   let yPos = 20;
   
-  // Company name as header
+  // Company name as header (right aligned)
   doc.setFontSize(24);
   doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.setFont('helvetica', 'bold');
-  doc.text(companyName, 20, yPos);
+  doc.text(companyName, 190, yPos, { align: 'right' });
 
   yPos += 8;
   doc.setFontSize(10);
   doc.setTextColor(grayColor[0], grayColor[1], grayColor[2]);
-  doc.text(companyAddress, 20, yPos);
+  doc.text(companyAddress, 190, yPos, { align: 'right' });
   yPos += 5;
-  doc.text(companyCity, 20, yPos);
+  doc.text(companyCity, 190, yPos, { align: 'right' });
   yPos += 5;
-  doc.text(companyPin, 20, yPos);
+  doc.text(companyPin, 190, yPos, { align: 'right' });
   yPos += 5;
-  doc.text(`Phone: ${companyPhone}`, 20, yPos);
-  yPos += 5;
-  doc.text(`Instagram: ${companyInstagram}`, 20, yPos);
-
-  // Estimate Details (Right side, below logo)
-  yPos = 50; // Below logo
+  doc.text(`Phone: ${companyPhone}`, 190, yPos, { align: 'right' });
+   
+  // Estimate Details (Right side, below company info)
+  yPos = 50; // Below company info
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(grayColor[0], grayColor[1], grayColor[2]);
-  doc.text(`Estimate No.: ${data.estimateNo}`, 180, yPos, { align: 'right' });
+  doc.text(`Estimate No.: ${data.estimateNo}`, 190, yPos, { align: 'right' });
   yPos += 5;
-  doc.text(`Date: ${data.date}`, 180, yPos, { align: 'right' });
+  doc.text(`Date: ${data.date}`, 190, yPos, { align: 'right' });
 
   // Customer Details Section
   yPos = 70;
@@ -159,7 +156,7 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
       0: { cellWidth: 20, halign: 'center' },
       1: { cellWidth: 90, halign: 'left' },
       2: { cellWidth: 30, halign: 'center' },
-      3: { cellWidth: 50, halign: 'right' }
+      3: { cellWidth: 35, halign: 'center' }
     },
     margin: { left: 20, right: 20 },
     tableWidth: 165, // Increased width for better spacing
