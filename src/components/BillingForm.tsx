@@ -376,7 +376,7 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
           </button>
           <button
             onClick={handleGeneratePDF}
-            className="px-6 py-3 bg-gradient-purple-blue text-white rounded-lg hover:opacity-90 transition-opacity font-semibold"
+            className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 box-glow-purple"
           >
             Generate & Download PDF
           </button>
