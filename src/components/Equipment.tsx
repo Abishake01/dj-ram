@@ -9,34 +9,34 @@ interface EquipmentItem {
 const Equipment: React.FC = () => {
   const equipment: EquipmentItem[] = [
     {
-      name: 'DJ Controllers & Mixers',
-      description: 'Industry-leading Pioneer CDJs and Allen & Heath mixers for flawless live mixing',
+      name: 'DJ Services',
+      description: 'Professional DJ services with industry-leading controllers and mixers for flawless live mixing and music production',
       image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800',
     },
     {
       name: 'Sound Systems',
-      description: 'Crystal-clear audio with premium JBL and QSC speaker arrays',
+      description: 'Crystal-clear audio with premium professional sound systems that fill any venue with powerful, crisp sound',
       image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800',
     },
     {
-      name: 'Stage Lighting',
-      description: 'Dynamic LED moving heads, wash lights, and intelligent fixtures',
+      name: 'Lighting',
+      description: 'Dynamic LED moving heads, wash lights, intelligent fixtures, and stage lighting for stunning visual effects',
       image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800',
     },
     {
-      name: 'Laser Systems',
-      description: 'High-powered RGB lasers creating stunning atmospheric effects',
-      image: 'https://images.unsplash.com/photo-1501612780327-45045538702b?w=800',
-    },
-    {
-      name: 'LED Walls & Screens',
-      description: 'Massive high-resolution displays for immersive visual experiences',
+      name: 'LED Wall',
+      description: 'Massive high-resolution LED displays and screens for immersive visual experiences and dynamic backgrounds',
       image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800',
     },
     {
-      name: 'Effects & Atmosphere',
-      description: 'Smoke machines, fog effects, and CO2 cannons for dramatic moments',
+      name: 'Dance Floor',
+      description: 'Illuminated LED dance floors that create vibrant, interactive experiences and transform any space into a party',
       image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800',
+    },
+    {
+      name: 'Truss Systems',
+      description: 'Professional truss systems for mounting lights, speakers, and equipment, creating impressive stage setups',
+      image: 'https://images.unsplash.com/photo-1501612780327-45045538702b?w=800',
     },
   ];
 

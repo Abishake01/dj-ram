@@ -24,18 +24,48 @@ const Events: React.FC = () => {
       image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=500&fit=crop',
     },
     {
-      title: 'College Fests',
+      title: 'School Culturals',
+      description: 'Energetic performances that turn school events into memorable celebrations with age-appropriate music and professional sound.',
+      image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&h=500&fit=crop',
+    },
+    {
+      title: 'College Culturals',
       description: 'Explosive performances that turn campuses into massive dance floors with energy that electrifies the entire venue.',
       image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&h=500&fit=crop',
     },
     {
-      title: 'Private Parties',
-      description: 'Exclusive intimate gatherings with personalized music curation and professional-grade sound for unforgettable nights.',
+      title: 'Parties & Culturals',
+      description: 'Versatile entertainment for all types of parties and cultural events, ensuring every celebration is unforgettable.',
       image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=500&fit=crop',
     },
     {
-      title: 'Clubs & Shows',
-      description: 'Electrifying nightclub sets and large-scale concert performances that keep the energy pumping all night long.',
+      title: 'Get Together',
+      description: 'Perfect for reunions, family gatherings, and social events with personalized music and professional sound systems.',
+      image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=500&fit=crop',
+    },
+    {
+      title: 'New Year Party',
+      description: 'Ring in the new year with electrifying beats, spectacular lighting, and an unforgettable celebration experience.',
+      image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=500&fit=crop',
+    },
+    {
+      title: 'Welcome Dancer',
+      description: 'Professional welcome dance performances with traditional and modern choreography to greet your guests in style.',
+      image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=500&fit=crop',
+    },
+    {
+      title: 'Reception Girls',
+      description: 'Elegant reception services with professional hostesses to welcome and assist your guests throughout the event.',
+      image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=500&fit=crop',
+    },
+    {
+      title: 'Cold Pyro Entry',
+      description: 'Spectacular cold pyrotechnic effects for grand entrances that create stunning visual moments without heat or smoke.',
+      image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=500&fit=crop',
+    },
+    {
+      title: 'Dry Ice Entry',
+      description: 'Dramatic dry ice fog effects for magical entrances that create an ethereal atmosphere and unforgettable first impressions.',
       image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=500&fit=crop',
     },
   ];

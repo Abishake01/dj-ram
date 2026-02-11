@@ -23,8 +23,12 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-sm text-gray-400 mb-1">Phone</h3>
-                  <a href="tel:+911234567890" className="text-white font-semibold hover:text-neon-purple transition-colors">
+                  <a href="tel:+917402241381" className="text-white font-semibold hover:text-neon-purple transition-colors">
                     +91 74022 41381
+                  </a>
+                  <br />
+                  <a href="tel:+918508121111" className="text-white font-semibold hover:text-neon-purple transition-colors">
+                    +91 85081 21111
                   </a>
                 </div>
               </div>
@@ -38,9 +42,9 @@ const Contact: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-sm text-gray-400 mb-1">Email</h3>
-                  <a href="mailto:contact@djram.com" className="text-white font-semibold hover:text-neon-blue transition-colors">
-                    contact@djram.com
+                  <h3 className="text-sm text-gray-400 mb-1">Instagram</h3>
+                  <a href="https://www.instagram.com/dj_remo_official" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-neon-blue transition-colors">
+                    @dj_remo_official
                   </a>
                 </div>
               </div>
@@ -55,8 +59,10 @@ const Contact: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-sm text-gray-400 mb-1">Service Area</h3>
-                  <p className="text-white font-semibold">Delhi NCR & Pan India</p>
+                  <h3 className="text-sm text-gray-400 mb-1">Address</h3>
+                  <p className="text-white font-semibold">2/35, Main Road, G.Ariyur</p>
+                  <p className="text-white font-semibold">Thirukovilur, Kallakurichi</p>
+                  <p className="text-white font-semibold">Pin - 605 751</p>
                 </div>
               </div>
             </div>
@@ -118,7 +124,7 @@ const Contact: React.FC = () => {
             </div>
 
             <a
-              href="https://wa.me/+917402241381"
+              href="https://wa.me/917402241381"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 flex items-center justify-center gap-3 bg-green-500 text-white px-8 py-5 rounded-2xl text-lg font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 box-glow-green"
@@ -134,7 +140,7 @@ const Contact: React.FC = () => {
         {/* Footer */}
         <div className="text-center pt-12 border-t border-gray-800">
           <p className="text-gray-500 text-sm">
-            © 2026 DJ RAM. All rights reserved. | Bringing energy to events since 2015
+            © 2026 REMO DJ SOUND & EVENTS. All rights reserved. | Bringing energy to events
           </p>
         </div>
       </div>

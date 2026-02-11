@@ -12,19 +12,19 @@ const Testimonials: React.FC = () => {
     {
       name: 'Priya Sharma',
       role: 'Wedding Client',
-      content: 'DJ RAM made our wedding reception absolutely unforgettable! The energy was incredible, and every guest was on the dance floor. Highly professional and adaptable to our song requests.',
+      content: 'REMO DJ made our wedding reception absolutely unforgettable! The energy was incredible, and every guest was on the dance floor. Highly professional and adaptable to our song requests.',
       rating: 5,
     },
     {
       name: 'Rajesh Kumar',
       role: 'Corporate Event Manager',
-      content: 'We hired DJ RAM for our annual corporate gala, and it was a massive success. Perfect balance of professionalism and entertainment. The setup was flawless!',
+      content: 'We hired REMO DJ for our annual corporate gala, and it was a massive success. Perfect balance of professionalism and entertainment. The setup was flawless!',
       rating: 5,
     },
     {
       name: 'Ananya Desai',
       role: 'College Fest Organizer',
-      content: 'The most energetic DJ we\'ve ever had at our college fest! DJ RAM knows how to read the crowd and keep the energy at its peak. Will definitely book again!',
+      content: 'The most energetic DJ we\'ve ever had at our college fest! REMO DJ knows how to read the crowd and keep the energy at its peak. Will definitely book again!',
       rating: 5,
     },
   ];

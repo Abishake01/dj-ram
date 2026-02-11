@@ -1,4 +1,5 @@
 import React from 'react';
+import logoIcon from '../assets/icon.png';
 
 const Hero: React.FC = () => {
   return (
@@ -28,14 +29,25 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-slide-up">
-          <span className="glow-purple animate-glow">DJ REMO</span>
+        {/* Logo */}
+        <div className="mb-8 animate-slide-up">
+          <img 
+            src={logoIcon} 
+            alt="REMO DJ SOUND & EVENTS Logo" 
+            className="w-32 h-32 md:w-40 md:h-40 mx-auto object-contain drop-shadow-2xl"
+          />
+        </div>
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 animate-slide-up">
+          <span className="glow-purple animate-glow">REMO DJ</span>
         </h1>
-        <p className="text-xl md:text-3xl mb-8 glow-blue font-light tracking-wide max-w-3xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          Electrifying Beats. Unforgettable Nights. Pure Energy.
+        <p className="text-2xl md:text-3xl mb-2 glow-blue font-semibold tracking-wide animate-slide-up" style={{ animationDelay: '0.1s' }}>
+          SOUND & EVENTS
+        </p>
+        <p className="text-xl md:text-2xl mb-8 glow-blue font-light tracking-wide max-w-3xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          DJ - Sound - Light - LED Wall - Dance Floor - Truss
         </p>
         <a
-          href="https://wa.me/+917402241381"
+          href="https://wa.me/917402241381"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 bg-gradient-purple-blue text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-110 transition-transform duration-300 box-glow-purple animate-slide-up"
@@ -57,7 +69,7 @@ const Hero: React.FC = () => {
 
       {/* Fixed WhatsApp Button */}
       <a
-        href="https://wa.me/1234567890"
+        href="https://wa.me/917402241381"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 bg-green-500 text-white p-4 rounded-full hover:scale-110 transition-transform duration-300 box-glow-green shadow-2xl"
