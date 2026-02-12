@@ -47,7 +47,7 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
             const logoWidth = 30;
             const logoHeight = 30;
             const logoX = 20; // Left side
-            const logoY = 15; // Top
+            const logoY = 25; // Top
             
             // Add logo image
             doc.addImage(base64data, 'PNG', logoX, logoY, logoWidth, logoHeight);
@@ -72,7 +72,7 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
   doc.setFontSize(24);
   doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.setFont('helvetica', 'bold');
-  doc.text(companyName, 190, yPos, { align: 'right' });
+  doc.text(companyName, 105, yPos, { align: 'center' });
 
   yPos += 8;
   doc.setFontSize(10);
