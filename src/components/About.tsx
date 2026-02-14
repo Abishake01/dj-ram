@@ -1,4 +1,6 @@
 import React from 'react';
+import profileImg from "../assets/profile.png";
+
 
 const About: React.FC = () => {
   return (
@@ -39,7 +41,7 @@ const About: React.FC = () => {
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden border-4 border-neon-purple/30 box-glow-purple">
               <img
-                src="https://images.unsplash.com/photo-1571266028243-d220c6e87fa2?w=800"
+                src={profileImg}
                 alt="REMO DJ performing"
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />
