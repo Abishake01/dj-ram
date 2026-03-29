@@ -1,7 +1,6 @@
 import React from 'react';
 import profileImg from "../assets/profile.png";
 
-
 const About: React.FC = () => {
   return (
     <section id="about" className="py-20 px-4 md:px-8 bg-gradient-to-b from-black via-gray-900 to-black">
