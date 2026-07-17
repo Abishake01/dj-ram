@@ -15,6 +15,7 @@ export interface BillingData {
   }>;
   discount: number;
   gst: number;
+  advance: number;
 }
 
 export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
@@ -170,7 +171,8 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
   const subtotal = data.items.reduce((sum, item) => sum + item.amount, 0);
   const discountAmount = data.discount;
   const gstAmount = data.gst;
-  const finalAmount = subtotal - discountAmount + gstAmount;
+  const advanceAmount = data.advance;
+  const finalAmount = subtotal - discountAmount + gstAmount - advanceAmount;
 
   // Summary Section - Add proper spacing after table
   const finalY = (doc as any).lastAutoTable.finalY + 20; // Increased spacing
@@ -200,7 +202,11 @@ export const generateEstimatePDF = async (data: BillingData): Promise<void> => {
   summaryY += 7;
   doc.text('GST:', summaryX, summaryY);
   doc.text(formatAmount(gstAmount), 190, summaryY, { align: 'right' });
-  
+
+  summaryY += 7;
+  doc.text('Advance Paid:', summaryX, summaryY);
+  doc.text(formatAmount(advanceAmount), 190, summaryY, { align: 'right' });
+
   summaryY += 10;
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(12);

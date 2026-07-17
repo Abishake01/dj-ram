@@ -23,11 +23,12 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
   ]);
   const [discount, setDiscount] = useState(0);
   const [gst, setGst] = useState(0);
+  const [advance, setAdvance] = useState(0);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Calculate totals
   const subtotal = items.reduce((sum, item) => sum + (item.quantity * item.amount), 0);
-  const finalAmount = subtotal - discount + gst;
+  const finalAmount = subtotal - discount + gst - advance;
 
   // Auto-generate estimate number if empty
   useEffect(() => {
@@ -113,7 +114,8 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
         amount: item.quantity * item.amount
       })),
       discount,
-      gst
+      gst,
+      advance
     };
 
     await generateEstimatePDF(billingData);
@@ -349,6 +351,31 @@ const BillingForm: React.FC<BillingFormProps> = ({ onClose }) => {
                       }
                       const numValue = cleanValue === '' ? 0 : parseFloat(cleanValue) || 0;
                       setGst(numValue);
+                    }
+                  }}
+                  className="w-32 bg-gray-800 border border-gray-700 rounded px-3 py-1 text-white focus:border-neon-purple focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  placeholder="0.00"
+                />
+                <span className="text-gray-300">₹</span>
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <label className="text-gray-300">Advance:</label>
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  inputMode="decimal"
+                  value={advance === 0 ? '' : advance}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    // Allow numbers and decimal point, remove leading zeros
+                    if (value === '' || /^\d*\.?\d*$/.test(value)) {
+                      let cleanValue = value;
+                      if (cleanValue.length > 1 && cleanValue[0] === '0' && cleanValue[1] !== '.') {
+                        cleanValue = cleanValue.replace(/^0+/, '') || '0';
+                      }
+                      const numValue = cleanValue === '' ? 0 : parseFloat(cleanValue) || 0;
+                      setAdvance(numValue);
                     }
                   }}
                   className="w-32 bg-gray-800 border border-gray-700 rounded px-3 py-1 text-white focus:border-neon-purple focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
